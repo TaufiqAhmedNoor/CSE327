@@ -19,111 +19,340 @@ Coding standard we should follow:
 • Follow a specific method for commenting on the work. The language functions which are complex or the structure which is difficult to be comprehended should be avoided.
 
 1. HTML Standard:
-*-----------------------*
+*----------------*
 
-	1.1.  Validation  
 
-All HTML pages should be verified against the W3C validator to ensure that the markup is well formed. This in and of itself is not directly indicative of good code, but it helps to weed out problems that are able to be tested via automation. It is no substitute for manual code review. (For other validators, see HTML Validation in the Codex.)
+ 	 1.1. Declare document type
 
-	 1.2. Self-closing Elements 
+Always declare the document type as the first line in your document. And we also use html5.
+
+Example:
+
+<!DOCTYPE html>
+
+	
+   1.2. Validation
+
+HTML pages should be verified against the W3C validator to ensure that the markup is well formed. This in and of itself is not directly indicative of good code, but it helps to weed out problems that are able to be tested via automation. It is no substitute for manual code review. (For other validators, see HTML Validation in the Codex.)
+
+  	 1.3. Self-closing Elements 
  
 All tags must be properly closed. For tags that can wrap nodes such as text or other elements, termination is a trivial enough task. For tags that are self-closing, the forward slash should have exactly one space preceding it.
+
+Example: 
+<p>This is a paragraph.<\p>
+
+Not to do:
+ <p>This is a paragraph.
 	
-          1.3. Attributes and Tags  
+	1.3. Attributes and Tags  
 
 All tags and attributes must be written in lowercase. Additionally, attribute values should be lowercase when the purpose of the text therein is only to be interpreted by machines. For instances in which the data needs to be human readable, proper title capitalization should be followed.
 
+Example1: 
+<body>
+<p>This is a paragraph.</p>
+</body>
+
+Not to do:
+<BODY>
+<P>This is a paragraph.</P>
+</BODY>
+
+Example 2:
+<a href="https://www.w3schools.com/html/">Visit our HTML tutorial</a>
+
+Not to do:
+<a HREF="https://www.w3schools.com/html/">Visit our HTML tutorial</a>
+
+	1.4. Always Quote Attribute Values
+
+HTML allows attribute values without quotes. But we should quoting attribute values, because:
+
+Developers normally quote attribute values
+
+Quoted values are easier to read
+
+You MUST use quotes if the value contains spaces
+
+Example:
+
+<table class="striped">
+
+Not to do:
+
+<table class=striped>
+
+	1.5. For adding Images
+
+Always specify the alt attribute for images. This attribute is important if the image for some reason cannot be displayed.
+
+Also, always define the width and height of images. This reduces flickering, because the browser can reserve space for the image before loading.
+
+Example:
+<img src="html5.gif" alt="HTML5" style="width:128px;height:128px">
+
+Not to do:
+<img src="html5.gif">
+
+	1.6. Spaces and Equal Signs
+
+HTML allows spaces around equal signs. But space-less is easier to read and groups entities better together.
+
+Example:
+
+<link rel="stylesheet" href="styles.css">
+
+Not to do:
+
+<link rel = "stylesheet" href = "styles.css">
+
+	1.7. For listing
+
+Example:
+<ul>
+  <li>London</li>
+  <li>Paris</li>
+  <li>Tokyo</li>
+</ul>
+
+	1.8. For making table
+
+Example:
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>A</td>
+    <td>Description of A</td>
+  </tr>
+  <tr>
+    <td>B</td>
+    <td>Description of B</td>
+  </tr>
+</table>
+
+	1.9. Use Comments
+By using comments everyone can understand the code easily and it will be easy to find out part by part.
+
+Example:
+
+<!-- This is a comment -->
+ 
+	1.10. Style Sheets
+
+Use simple syntax for linking to style sheets (the type attribute is not necessary).
+Example:
+
+<link rel="stylesheet" href="styles.css">
+
+
+
+
+
+
+
+
 2. CSS Standard:
-*---------------------*
+*----------------*
 
             2.1. Structure
   
-There are plenty of different methods for structuring a stylesheet. With the CSS in core, it is important to retain a high degree of legibility. This enables subsequent contributors to have a clear understanding of the flow of the document.
-•	Use tabs, not spaces, to indent each property.
-•	Add two blank lines between sections and one blank line between blocks in a section.
-•	Each selector should be on its own line, ending in either a comma or an opening curly brace. Property-value pairs should be on their own line, with one tab of indentation and an ending semicolon. The closing brace should be flush left, using the same level of indentation as the opening selector.
+1. Use tabs, not spaces, to indent each property.
+2.	Add two blank lines between sections and one blank line between blocks in a section.
+3. Each selector should be on its own line, ending in either a comma or an opening curly brace. Property-value pairs should be on their own line, with one tab of indentation and an ending semicolon. The closing brace should be flush left, using the same level of indentation as the opening selector.
 
-	2.2. Selectors  
+Example:
 
-With specificity, comes great responsibility. Broad selectors allow us to be efficient, yet can have adverse consequences if not tested. Location-specific selectors can save us time, but will quickly lead to a cluttered stylesheet. Exercise your best judgement to create selectors that find the right balance between contributing to the overall style and layout of the DOM.
-•	Similar to the WordPress PHP Coding Standards for file names, use lowercase and separate words with hyphens when naming selectors. Avoid camelcase and underscores.
-•	Use human readable selectors that describe what element(s) they style.
-•	Attribute selectors should use double quotes around values
-•	Refrain from using over-qualified selectors, div.container can simply be stated as .container
+.selector-1,
 
-	2.3. Properties  
+.selector-2,
 
-Similar to selectors, properties that are too specific will hinder the flexibility of the design. Less is more. Make sure you are not repeating styling or introducing fixed dimensions (when a fluid solution is more acceptable).
-•	Properties should be followed by a colon and a space.
-•	All properties and values should be lowercase, except for font names and vendor-specific properties.
-•	Use hex code for colors, or rgba() if opacity is needed. Avoid RGB format and uppercase, and shorten values when possible: #fff instead of #FFFFFF.
-•	Use shorthand (except when overriding styles) for background, border, font, list-style, margin, and padding values as much as possible. (For a shorthand reference, see CSS Shorthand.)
+.selector-3 {
 
-	2.4. Values  
+    background: #fff;
+
+    color: #000;
+
+}
+
+Not to do:
+
+ .selector-1, .selector-2, .selector-3 {
+
+    background: #fff;
+
+    color: #000;
+
+    }
+
+ or
+
+.selector-1 { background: #fff; color: #000; }
+
+
+	2.2. Properties  
+
+1. 	Properties should be followed by a colon and a space.
+2.	All properties and values should be lowercase, except for font names and vendor-specific properties.
+3. 	Use hex code for colors, or rgba() if opacity is needed. Avoid RGB format and uppercase, and shorten values when possible: #fff instead of #FFFFFF.
+4. Use shorthand (except when overriding styles) for background, border, font, list-style, margin, and padding values as much as possible. (For a shorthand reference, see CSS Shorthand.)
+
+.selector-1 {
+
+    background: #fff;
+
+    display: block;
+
+    margin: 0;
+
+    margin-left: 20px;
+
+}
+
+Incorrect:
+
+.selector-1 {
+
+    background:#FFFFFF;
+
+    display: BLOCK;
+
+    margin-left: 20PX;
+
+    margin: 0;
+
+}
+
+
+
+	2.3. Values  
 
 There are numerous ways to input values for properties. Follow the guidelines below to help us retain a high degree of consistency.
-•	Space before the value, after the colon.
-•	Do not pad parentheses with spaces.
-•	Always end in a semicolon.
-•	Use double quotes rather than single quotes, and only when needed, such as when a font name has a space or for the values of the content property.
-•	Font weights should be defined using numeric values (e.g. 400 instead of normal, 700 rather than bold).
-•	0 values should not have units unless necessary, such as with transition-duration.
-•	Line height should also be unit-less, unless necessary to be defined as a specific pixel value. This is more than just a style convention, but is worth mentioning here. More information: http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights/
-•	Use a leading zero for decimal values, including in rgba().
-•	Multiple comma-separated values for one property should be separated by either a space or a newline. For better readability newlines should be used for lengthier multi-part values such as those for shorthand properties like box-shadow and text-shadow, including before the first value. Values should then be indented one level in from the property.
-•	Lists of values within a value, like within rgba(), should be separated by a space.
+1. Space before the value, after the colon.
+2.	Do not pad parentheses with spaces.
+3. Always end in a semicolon.
+4. Use double quotes rather than single quotes, and only when needed, such as when a font name has a space or for the values of the content property.
+5.	Font weights should be defined using numeric values (e.g. 400 instead of normal, 700 rather than bold).
+5.	0 values should not have units unless necessary, such as with transition-duration.
+6. 	Lists of values within a value, like within rgba(), should be separated by a space.
 
-	2.5. Commenting 
+Example:1
+
+.class { /* Correct usage of quotes */
+
+    background-image: url(images/bg.png);
+
+    font-family: "Helvetica Neue", sans-serif;
+
+    font-weight: 700;
+
+}
+
+ Example:2
+
+.class { /* Correct usage of zero values */
+
+    font-family: Georgia, serif;
+
+    line-height: 1.4;
+
+    text-shadow:
+
+        0 -1px 0 rgba(0, 0, 0, 0.5),
+
+        0 1px 0 #fff;
+
+}
+
+ Example:3
+
+.class { /* Correct usage of short and lengthier multi-part values */
+
+    font-family: Consolas, Monaco, monospace;
+
+    transition-property: opacity, background, color;
+
+    box-shadow:
+
+        0 0 0 1px #5b9dd9,
+
+        0 0 2px 1px rgba(30, 140, 190, 0.8);
+
+}
+
+
+
+	2.4. Commenting 
+
+Use comments that every team meambers can understand easily.
+
+Example:
+
+/**
+
+ * comment here
+
+ *background will be white
+*Margin in left
+
+ */
+
+.selector-1 {
+
+    background:#FFFFFF;
+
+    display: BLOCK;
+
+    margin-left: 20PX;
+
+    margin: 0;
  
-•	Comment, and comment liberally. If there are concerns about file size, utilize minified files and the SCRIPT_DEBUG constant. Long comments should manually break the line length at 80 characters.
-•	A table of contents should be utilized for longer stylesheets, especially those that are highly sectioned. Using an index number (1.0, 1.1, 2.0, etc.) aids in searching and jumping to a location.
-•	Comments should be formatted much as PHPDoc is. The CSSDoc standard is not necessarily widely accepted or used but some aspects of it may be adopted over time. Section/subsection headers should have newlines before and after. Inline comments should not have empty newlines separating the comment from the item to which it relates.
-
-	2.6. Best Practices  
-
-Stylesheets tend to get long in length. Focus slowly gets lost whilst intended goals start repeating and overlapping. Writing smart code from the outset helps us retain the overview whilst remaining flexible throughout change.
-•	If you are attempting to fix an issue, attempt to remove code before adding more.
-•	Magic Numbers are unlucky. These are numbers that are used as quick fixes on a one-off basis. Example: .box { margin-top: 37px }.
-•	DOM will change over time, target the element you want to use as opposed to “finding it” through its parents. Example: Use .highlight on the element as opposed to .highlight a (where the selector is on the parent)
-•	Know when to use the height property. It should be used when you are including outside elements (such as images). Otherwise use line-height for more flexibility.
-•	Do not restate default property & value combinations (for instance display: block; on block-level elements).
 
 3. Javascript Standard:
-*----------------------------*
+*-----------------------*
 
-	3.1. Code Refactoring 
+	
 
-Many parts of the WordPress code structure for JavaScript are inconsistent in their style. WordPress is working to gradually improve this, so the code will be clean and easy to read at a glance.
-While the coding standards are important, refactoring older .js files simply to conform to the standards is not an urgent issue. “Whitespace-only” patches for older files are strongly discouraged.
-All new or updated JavaScript code will be reviewed to ensure it conforms to the standards, and passes JSHint.
+	3.1. Spacing  
 
-	3.2. Spacing  
+Use spaces liberally throughout your code. “When in doubt, space it out.” Always use extra space. So that the program will be neat and clean and will not be difficult to understand.
+array = [ a, b ];
 
-Use spaces liberally throughout your code. “When in doubt, space it out.”
-These rules encourage liberal spacing for improved developer readability. The minification process creates a file that is optimized for browsers to read and process.
-•	Indentation with tabs.
-•	No whitespace at the end of line or on blank lines.
-•	Lines should usually be no longer than 80 characters, and should not exceed 100 (counting tabs as 4 spaces). This is a “soft” rule, but long lines generally indicate unreadable or disorganized code.
-•	if/else/for/while/try blocks should always use braces, and always go on multiple lines.
-•	Unary special-character operators (e.g., ++, --) must not have space next to their operand.
-•	Any , and ; must not have preceding space.
-•	Any ; used as a statement terminator must be at the end of the line.
-•	Any : after a property name in an object definition must not have preceding space.
-•	The ? and : in a ternary conditional must have space on both sides.
-•	No filler spaces in empty constructs (e.g., {}, [], fn()).
-•	There should be a new line at the end of each file.
-•	Any ! negation operator should have a following space.*
-•	All function bodies are indented by one tab, even if the entire file is wrapped in a closure.*
-•	Spaces may align code within documentation blocks or within a line, but only tabs should be used at the start of a line.*
-*: The WordPress JavaScript standards prefer slightly broader whitespace rules than the jQuery style guide. These deviations are for consistency between the PHP and JavaScript files in the WordPress codebase.
-Whitespace can easily accumulate at the end of a line – avoid this, as trailing whitespace is caught as an error in JSHint. One way to catch whitespace buildup is enabling visible whitespace characters within your text editor.
+ foo( arg );
+foo( 'string', object );
+foo( options, object[ property ] );
+foo( node, 'property', 2 );
+prop = object[ 'default' ];
+firstArrayElement = arr[ 0 ];
 
-	3.3. Objects  
 
-Object declarations can be made on a single line if they are short (remember the line length guidelines). When an object declaration is too long to fit on one line, there must be one property per line. Property names only need to be quoted if they are reserved words or contain special characters:
+	3.2. Objects  
+
 Objects and arrays can be declared on a single line if they are short (remember the line length guidelines). When an object or array is too long to fit on one line, each member must be placed on its own line and each line ended by a comma.
 
-	3.4. Semicolons  
+Example:
+var obj = {
+
+ ready: 9,
+
+    when: 4,
+
+    'you are': 15,
+
+};
+
+var arr = [  9,
+4,
+15
+];
+
+
+
+	3.3. Semicolons  
 
 Use them. Never rely on Automatic Semicolon Insertion (ASI).
 Blocks and Curly Braces #Blocks and Curly Braces
@@ -132,30 +361,179 @@ Indentation and Line Breaks #Indentation and Line Breaks
 Indentation and line breaks add readability to complex statements.
 Tabs should be used for indentation. Even if the entire file is contained in a closure (i.e., an immediately invoked function), the contents of that function should be indented by one tab.
 
-	3.5. Blocks and Curly Braces  
+Example:
+( function ( $ ) {
 
-if, else, for, while, and try blocks should always use braces, and always go on multiple lines. The opening brace should be on the same line as the function definition, the conditional, or the loop. The closing brace should be on the line directly following the last statement of the block.
-Declaring Variables With var #Declaring Variables With var
-Each function should begin with a single comma-delimited var statement that declares any local variables necessary. If a function does not declare a variable using var, that variable can leak into an outer scope (which is frequently the global scope, a worst-case scenario), and can unwittingly refer to and modify that data.
-Assignments within the var statement should be listed on individual lines, while declarations can be grouped on a single line. Any additional lines should be indented with an additional tab. Objects and functions that occupy more than a handful of lines should be assigned outside of the var statement, to avoid over-indentation.
+    // Expressions indented
 
-         3.6. Comments
+<pre><code>function doSomething() {
+
+    // Expressions indented
+
+}
+
+</code></pre>
+
+} )( jQuery );
+
+
+         3.4. Comments
 
 Comments come before the code to which they refer, and should always be preceded by a blank line. Capitalize the first letter of the comment, and include a period at the end when writing full sentences. There must be a single space between the comment token (//) and the comment text.
 
-	3.7. Equality  
+Example:
+someStatement();
+
+// Explanation of something complex on the next line
+
+$( 'p' ).doSomething();
+
+// This is a comment that is long enough to warrant being stretched
+
+// over the span of multiple lines.
+
+
+
+	3.5. Equality  
 
 Strict equality checks (===) must be used in favor of abstract equality checks (==).
-Switch Statements #Switch Statements
-The usage of switch statements is generally discouraged, but can be useful when there are a large number of cases – especially when multiple cases can be handled by the same block, or fall-through logic (the default case) can be leveraged.
-When using switch statements:
-•	Use a break for each case other than default. When allowing statements to “fall through,” note that explicitly.
-•	Indent case statements one tab within the switch.
+
+String: typeof object === 'string'
+Number: typeof object === 'number'
+Boolean: typeof object === 'boolean'
+Object: typeof object === 'object
+null: object === null
+null or undefined: object == null
+
+    3.6. String
+
+Use single-quotes for string literals.
+
+Example:
+
+var myStr = 'strings should be contained in 
+
+     3.7. Switch case
+     
+When using switch statements:
+1. Use a break for each case other than default. When allowing statements to “fall through,” note that explicitly
+2. Indent case statements one tab within the switch.
+
+Example:
+switch ( event.keyCode ) {
+
+    // ENTER and SPACE both trigger x()
+
+    case $.ui.keyCode.ENTER:
+
+    case $.ui.keyCode.SPACE:
+
+        x();
+
+        break;
+
+    case $.ui.keyCode.ESCAPE:
+
+        y();
+
+        break;
+
+    default:
+
+        z();
+
+}
+
 
 	3.8. Arrays  
 
 Creating arrays in JavaScript should be done using the shorthand [] constructor rather than the new Array() notation.
 
-	3.9. JSHint  
+Example:
+var myArray = [];
 
-JSHint is an automated code quality tool, designed to catch errors in your JavaScript code. JSHint is used in WordPress development to quickly verify that a patch has not introduced any logic or syntax errors to the front-end.
+
+
+
+4. Php standards
+*----------------*
+
+	4.1. Opening and Closing PHP Tags 
+
+When embedding multi-line PHP snippets within a HTML block, the PHP open and close tags must be on a line by themselves.
+
+Example:
+
+function foo() {
+
+    ?>
+
+<div>
+
+        </div>
+
+<pre><code><?php
+
+</code></pre>
+
+}
+
+	4.2. No shorthand PHP Tags
+
+Important: Never use shorthand PHP start tags. Always use full PHP tags.
+
+Example:
+
+<?php ... ?>
+
+<?php echo $var; ?>
+
+Not to do:
+
+<? ... ?>
+
+<?= $var ?>
+
+
+
+	4.3. Single and Double Quotes 
+
+Use single and double quotes when appropriate. If you’re not evaluating anything in the string, use single quotes. You should almost never have to escape quotes in a string, because you can just alternate your quoting style, like so:
+
+Example:
+
+echo '<a href="/static/link" title="Yeah yeah!">Link name</a>';
+
+echo "<a href='$link' title='$linktitle'>$linkname
+
+	4.4. Use tabs
+
+Use real tabs and not spaces, as this allows the most flexibility across clients.
+
+Exception: if you have a block of code that would be more readable if things are aligned, use spaces:
+
+[tab]$foo   = 'somevalue';
+
+[tab]$foo2  = 'somevalue2';
+
+	4.5. Brace Style
+
+Braces shall be used for all blocks in the style shown here:
+
+if ( condition ) {
+
+    action1();
+
+    action2();
+
+} elseif ( condition2 && condition3 ) {
+
+    action3();
+
+    action4();
+
+} else {
+
+    defaultaction();
+
+}
