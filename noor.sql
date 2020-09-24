@@ -38,14 +38,14 @@ CREATE TABLE `restu` (
 --
 
 INSERT INTO `restu` (`res_id`, `res_title`) VALUES
-(1, 'murad_tostos'),
-(2, 'noortakla'),
-(3, 'ratul'),
-(4, 'takeout'),
-(5, 'takeout'),
-(6, 'takla'),
-(7, 'kachchi'),
-(8, 'sultan');
+(1, 'Burgerology'),
+(2, 'Kacchiwala'),
+(3, 'Kacchi bhai'),
+(4, 'Khana's'),
+(5, 'Chillox'),
+(6, 'Takeout'),
+(7, 'Madchef'),
+(8, 'Sultans dine');
 
 --
 -- Indexes for dumped tables
