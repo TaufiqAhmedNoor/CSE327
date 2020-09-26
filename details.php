@@ -1,27 +1,28 @@
-<?php include 'inc/header.php' ?>
+<?php 
+include 'inc/header.php';
+include 'model/Model.php';
+$mod= new Model();
+ ?>
 <?php 
 // Here we  get all menu of the restaurants by its id 
-
   if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $getValue = $Menu->getMenuByResId($_GET['id']);
+    $getValue = $mod->getMenuByResId($_GET['id']);
   }
   
  ?>
-
  <!-- Here we set the bg of menu page -->
 <section class="container-fluid">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div style="background-image: url(images/bro.jpg);background-size: cover;">
-          <h2 class="p-5 text-center">Menu</h2>
+          <h3 class="p-5 text-center">Open untill sat 08:00 AM</h3>
         </div>
         
       </div>
   </div>
 </section>
-
 <!-- Here we made the layout of the items and cash memo. -->
 <section class="container-fluid">
   <div class="container">
@@ -56,7 +57,7 @@
                           <span class="fa fa-minus"></span>
                         </button>
                     </span>
-                    <input type="text" name="quant" readonly class="qnty" value="0" min="1" max="100" size="2">
+                    <input type="text" name="quant" class="qnty" value="0" min="1" max="100" size="2">
                     <span class="input-group-btn">
                         <button type="button" class="btn btn-success bplus" data-type="plus" data-field="quant[2]">
                             <span class="fa fa-plus"></span>
@@ -90,7 +91,6 @@
       </div>
   </div>
 </section>
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
