@@ -1,11 +1,4 @@
-<?php 
-   $filepath = realpath(dirname(__FILE__));
 
-     spl_autoload_register(function ($class) {
-     include 'classes/' . $class . '.php';
- });
-  $Menu = new Menu();
-//  ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,8 +15,8 @@
 
 <nav class="navbar navbar-light navbar-expand-sm" height="200" >
     <div class="container">
-        <a href="index.html" class="navbar-brand" data-toggle="tooltip" title="Cyber Cafe Owners Assoication of Bangladesh">
-          <img class="img-fluid mx-auto deming" src="14.ico" alt="">
+        <a href="index.html" class="navbar-brand" data-toggle="tooltip" title="FDS">
+           <img class="img-fluid mx-auto deming" width="100" src="images/leaf.png" alt="">
           
         </a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#menu" >
