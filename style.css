@@ -1,0 +1,20 @@
+body{
+    background: #859091;
+}
+#frm{
+    border: solid rgb(235, 4, 4) 2px;
+    width: 20%;
+    border-radius: 5px;
+    margin: 100px auto;
+    background: black;
+    padding: 50px;
+}
+#btn{
+    color: rgb(18, 157, 221);
+    background-color: rgb(40, 87, 87);
+    padding: 5px;
+    margin-left: 69%;
+}
+label{
+    color: #fff;
+}
