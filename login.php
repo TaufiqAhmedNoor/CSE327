@@ -3,24 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Registration</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div id="frm">
-        <form action="process.php" method="post">
-            <p>
-                <label>Username:</label>
-                <input type="text" id="user" name="user" />
-            </p>
-            <p>
-                <label>Password:</label>
-                <input type="password" id="pass" name="pass" />
-            </p>
-            <p>
-                <input type="Submit" id="btn" value="Submit" />
-            </p>
-        </form>
+    <div class="header">
+        <h2>Login</h2>
     </div>
+
+    <form method="post" action="login.php">
+        <div class="input-ground">
+            <label>Username</label>
+            <input type="text" name="username">
+        </div>
+        <div class="input-ground">
+            <label>Password</label>
+            <input type="password" name="password_1">
+        </div>
+        <div class="input-ground">
+            <button type="submit" name="Login" class="btn">Login</button>
+        </div>
+        <div>
+            <p>Not yet a member? <a href="register.php">Sign up</a></p>
+        </div>
+    </form>
 </body>
 </html>
