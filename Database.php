@@ -1,8 +1,6 @@
 <?php
 
-// Added config file
- $filepath = realpath(dirname(__FILE__));
- include_once ($filepath.'/../config/config.php');
+ include_once 'config.php';
 
 Class Database{
 	public $host   = DB_HOST;
@@ -18,7 +16,6 @@ Class Database{
 		$this->connectDB();
 	}
 	
-	// Database connect
 	private function connectDB(){
 	$this->link = new mysqli($this->host, $this->user, $this->pass, $this->dbname);
 	if(!$this->link){
