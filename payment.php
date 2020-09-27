@@ -1,4 +1,5 @@
 <?php
+/*make connection*/
 session_start();
 require 'connection.php';
 $conn = Connect();
@@ -12,7 +13,7 @@ header("location: customerlogin.php");
   <head>
     <title> Tasin</title>
   </head>
-
+<!--connect with css, bootstrap and javascript-->
   <link rel="stylesheet" type = "text/css" href ="css/payment.css">
   <link rel="stylesheet" type = "text/css" href ="css/bootstrap.min.css">
   <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -22,7 +23,7 @@ header("location: customerlogin.php");
     <button onclick="topFunction()" id="myBtn" title="Go to top">
       <span class="glyphicon glyphicon-chevron-up"></span>
     </button>
-  
+  <!--javascript-->
     <script type="text/javascript">
       window.onscroll = function()
       {
@@ -42,7 +43,7 @@ header("location: customerlogin.php");
         document.documentElement.scrollTop = 0;
       }
     </script>
-
+<!--nav bar design-->
     <nav class="navbar navbar-inverse navbar-fixed-top navigation-clean-search" role="navigation" style="background-color: darkblue;
 border-color: darkblue;">
       <div class="container">
@@ -68,7 +69,7 @@ margin-top: -25px;">
 
         <div class="collapse navbar-collapse " id="myNavbar">
         
-
+<!--check condition-->
 <?php
 if(isset($_SESSION['login_user1'])){
 
@@ -84,8 +85,7 @@ else if (isset($_SESSION['login_user2'])) {
   ?>
            <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><span ></span> Welcome <?php echo $_SESSION['login_user2']; ?> </a></li>
-            <li class="active" ><a href="foodlist.php" style="background-color: darkblue;"><span class="glyphicon glyphicon-cutlery"></span> Food Zone </a></li>
-            <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart  (<?php
+    <?php
               if(isset($_SESSION["cart"])){
               $count = count($_SESSION["cart"]); 
               echo "$count"; 
@@ -97,6 +97,7 @@ else if (isset($_SESSION['login_user2'])) {
 else {
 
   ?>
+  <!--search option-->
 
 <ul class="nav navbar-nav navbar-right">
 
@@ -104,8 +105,9 @@ else {
 margin-top: 8px;">
            
             </li>
+    <!--connect to homepage-->
 
-  <li><a href="http://localhost/noor"  style="background-color: darkblue; color: white;" role="button" aria-haspopup="true" aria-expanded="false"><span ></span> Home<span class="caret"></span></a></li>
+  <li><a href="http://localhost/noor-mvc/index.php"  style="background-color: darkblue; color: white;" role="button" aria-haspopup="true" aria-expanded="false"><span ></span> Home<span class="caret"></span></a></li>
             <li><a href="#" data-toggle="dropdown" style="background-color: darkblue; color: white;" role="button" aria-haspopup="true" aria-expanded="false"><span ></span> Sign Up <span class="caret"></span> </a>
                 <ul class="dropdown-menu" style="background-color: darkblue;">
               <li> <a href="customersignup.php" style="color: white;"> User Sign-up</a></li>
@@ -117,17 +119,8 @@ margin-top: 8px;">
               
             </ul>
             </li>
-
-              <li><a href="#" data-toggle="dropdown" style="background-color: darkblue; color: white;" role="button" aria-haspopup="true" aria-expanded="false"><span ></span> About Us <span class="caret"></span></a>
-
-                <li><a href="#" data-toggle="dropdown" style="background-color: darkblue; color: white;" role="button" aria-haspopup="true" aria-expanded="false"><span ></span> Contact Us <span class="caret"></span></a>
-           
             </li>
-
-
-
           </ul>
-
 
 
 <?php
@@ -141,6 +134,8 @@ margin-top: 8px;">
     </nav>
 
  <?php
+
+ /*calculation for payment*/
 $getvalue = 0;
   foreach($_SESSION["cart"] as $keys => $values)
   {
@@ -156,6 +151,8 @@ $getvalue = 0;
     
     $getvalue = $getvalue + $total;
 
+
+    /*database connection*/
 
      $query = "INSERT INTO ORDERS (F_ID, foodname, price,  quantity, order_date, username, R_ID) 
               VALUES ('" . $F_ID . "','" . $foodname . "','" . $price . "','" . $quantity . "','" . $order_date . "','" . $username . "','" . $R_ID . "')";
@@ -181,10 +178,12 @@ $getvalue = 0;
         ?>
         
         <br><br><br><br><br>
-<h1 class="text-center" id="finalAmount">Grand Total: ;<?php echo "$getvalue"; ?>/-</h1>
+  <!--show ammount-->
+<h1 class="text-center" id="finalAmount">Grand Total: <?php echo "$getvalue"; ?>Tk</h1>
 <h5 class="text-center">No delivery charges applied</h5>
 <br>
 <h1 class="text-center">
+<!--There are two option. online payment and cash on delivery-->
   <a href="onlinepay.php"><button class="btn btn-success"><span class="glyphicon glyphicon-credit-card"></span> Pay Online</button></a>
   <a href="COD.php"><button class="btn btn-success"><span class="glyphicon glyphicon-"></span> Cash On Delivery</button></a>
 </h1>
