@@ -4,7 +4,7 @@ function Connect()
 {
 	$dbhost = "localhost";
 	$dbuser = "root";
-	$dbpass = "1234";
+	$dbpass = "";
 	$dbname = "food";
 
 	//Create Connection
