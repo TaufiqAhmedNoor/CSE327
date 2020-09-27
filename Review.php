@@ -20,6 +20,7 @@
     <div class="input-ground">
         <button type="submit" name="Review" class="btn">Submit</button>
     </div>
+        <!-- this section is for back to the cart page -->
     <div class="input-ground">
         <button type="submit" name="Checkout" class="btn"><a href="details.php">checkout</a></button>
     </div>
