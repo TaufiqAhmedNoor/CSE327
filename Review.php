@@ -23,15 +23,3 @@
     </form>
 </body>
 </html>
-/*
-<?php 
-
-    include "config.php";
-
-?>
-<?php 
-
-    $sql = "INSERT INTO review (review) 
-    VALUES ('" . $review ."';
-
-?>*/
