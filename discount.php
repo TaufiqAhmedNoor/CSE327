@@ -12,7 +12,7 @@
 
 <div class="container">
   <h2></h2>
- 
+ <!-- this section box where promo code are given for a fixed ammount of money -->
     <div class="form-group">
       <label for="email">Total Price:</label>
       <input type="text" class="form-control" id="total_price" name="total_price" value="1000.00">
@@ -22,11 +22,12 @@
       <input type="text" class="form-control" id="coupon_code" placeholder="Apply Promocode" name="coupon_code">
 	  <b><span id="message" style="color:green;"></span></b>
     </div>
-    
+    <!-- this is for apply button -->
     <button id="apply" class="btn btn-default">Apply</button>
 	<button id="edit" class="btn btn-default" style="display:none;">Edit</button>
   
 </div>
+	<!-- function for apply promo code -->
 <script>
 	$("#apply").click(function(){
 		if($('#promo_code').val()!=''){
@@ -36,6 +37,7 @@
 						data:{
 							coupon_code: $('#coupon_code').val()
 						},
+				//<!-- this function is for apply promo code -->
 						success: function(dataResult){
 							var dataResult = JSON.parse(dataResult);
 							if(dataResult.statusCode==200){
