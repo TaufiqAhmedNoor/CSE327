@@ -4,16 +4,11 @@ body,html {
 
 body {
   padding-top: 50px;
-/*  background-image: url('bgimg1.jpg'); 
 
-  background-repeat: repeat;
-  background-size: cover;
-  background-position: center;
-*/
   
 }
 
-
+/*button design*/
 #myBtn{
   display: none;
   position: fixed;
@@ -28,6 +23,7 @@ body {
   padding: 15px;
   border-radius: 10px;
 }
+/*make hover button*/
 #myBtn:hover {
   background-color: darkgreen;
   color: white;
@@ -41,7 +37,7 @@ body {
   color: #ffffff;
 
 }
-
+/*footer*/
 footer{
   display: block;
 }
